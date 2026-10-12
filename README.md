@@ -10,6 +10,16 @@
 
 内核须支持原型所用的 eBPF kprobe、tracepoint 和 `bpf_override_return`，包括相应的内核配置及可覆盖的系统调用入口。加载器和系统级采集需要相应权限。
 
+在 Debian/Ubuntu 系上可执行：
+
+```bash
+sudo apt install clang llvm libbpf-dev libelf-dev zlib1g-dev bpftool linux-headers-$(uname -r)
+```
+
+生成脚本使用 `ausyscall --dump` 获取系统调用列表（由 `auditd` 提供），若未安装或不可用会直接报错退出。
+
+加载失败（`operation not permitted`）时，确保以 root 运行，且内核启用了 `CONFIG_BPF`、`CONFIG_BPF_SYSCALL`、`CONFIG_BPF_JIT`。
+
 从本目录执行：
 
 ```bash

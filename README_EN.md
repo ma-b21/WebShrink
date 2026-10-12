@@ -10,6 +10,16 @@ Install Python 3.12+, uv, a bootstrap Go toolchain, Clang/LLVM, a C++ compiler, 
 
 The kernel must support the eBPF kprobes, tracepoints, and `bpf_override_return` used by the prototype, with the required kernel configuration and syscall entry points that permit return-value overriding. The loader and system-wide tracing require appropriate privileges.
 
+On Debian/Ubuntu, run:
+
+```bash
+sudo apt install clang llvm libbpf-dev libelf-dev zlib1g-dev bpftool linux-headers-$(uname -r)
+```
+
+The generator uses `ausyscall --dump` (provided by `auditd`) to obtain the syscall list. It exits with an error if the command is not installed or is unavailable.
+
+If loading fails with `operation not permitted`, ensure that it is run as root and that the kernel enables `CONFIG_BPF`, `CONFIG_BPF_SYSCALL`, and `CONFIG_BPF_JIT`.
+
 Run the following from this directory:
 
 ```bash
