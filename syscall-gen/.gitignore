@@ -1,0 +1,6 @@
+tmp
+analyzer
+test_repos
+*.json
+vendor
+vta-analyzer/vta-analyzer

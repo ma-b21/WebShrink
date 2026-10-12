@@ -1,0 +1,26 @@
+# Virtual environments
+.venv/
+
+# Build outputs
+build/
+*.o
+*.so
+*.a
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Temporary files
+*.log
+*.tmp
+sample_tmp_*
+
+# Editor artifacts
+*.swp
+*.swo
+.DS_Store
+
+# generated files
+src/generated_syscall_profiles.hpp
+src/syscall_whitelist.bpf.c

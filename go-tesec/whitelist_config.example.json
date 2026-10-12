@@ -1,0 +1,39 @@
+{
+    "version": "2.0",
+    "bpf_object": "syscall_whitelist.bpf.o",
+    "default_profile": 0,
+    "function_whitelists": {
+        "main.testFunc": 1,
+        "main.sensitiveOp": 2,
+        "main.dangerousCall": 2
+    },
+    "signatures": [
+        {
+            "params": [
+                "*example.com/project.Request"
+            ],
+            "results": [
+                "error"
+            ]
+        }
+    ],
+    "profiles": [
+        {
+            "id": 1,
+            "name": "default",
+            "syscalls": [
+                0,
+                1,
+                60
+            ]
+        },
+        {
+            "id": 2,
+            "name": "limited",
+            "syscalls": [
+                0,
+                60
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+# Local environments and caches
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.vscode/
+captured/
+build/
+
+# Generated toolchain files (upstream Go also has its own ignore rules)
+/go-tesec/bin/
+/go-tesec/pkg/
+
+# BPF and analyzer outputs; JSON configuration files remain visible to Git
+/ebpf/build/
+/ebpf/src/syscall_whitelist.bpf.c
+/ebpf/src/generated_syscall_profiles.hpp
+/syscall-gen/asm-analyzer/func_sets.json
+/syscall-gen/linkname-analyzer/linkname_mapping.json
+/syscall-gen/vta-analyzer/analyzer
+
+# Scene runtime state and generated outputs
+/experiments/**/results/
+/experiments/**/test_*.json
+/experiments/**/e2e_*.json
+/experiments/**/rq4_*.json
+/experiments/**/rq4_*.csv
+/experiments/**/tmp/
+/experiments/**/runtime/
+/experiments/**/run/
+/experiments/**/data/
+/experiments/**/rq4_runtime/
+/experiments/**/rq5_runtime/
+/experiments/**/rq4_coverdir/
+/experiments/**/runtime-home*/
+/experiments/**/*.log*
+/experiments/**/*.jsonl
+/experiments/**/*.scap*
+/experiments/**/go-sysdig*
+/experiments/**/go-exec-trace*
+/experiments/**/ifacecalls*
+/experiments/**/dyn_calls.json
+/experiments/**/dag_syscalls*.json
+/experiments/**/*.o
+/experiments/**/syscall_loader*
+/experiments/**/analyzer
+/experiments/**/*.db
+/experiments/**/*.sqlite*
+/experiments/**/*-protected*
+/experiments/**/*-baseline*
+/experiments/**/*-cover*
+/experiments/**/*-iface*
+/experiments/**/*-sysdig*
